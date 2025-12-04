@@ -30,5 +30,4 @@ jobs:
       - name: Run MLflow Pipeline
         run: |
           mlflow run . -e ingest --env-manager local
-          mlflow run . -e train -P n_estimators=200 -P max_depth=6
-       
+          mlflow run . -e train -P n_estimators=200 -P max_depth=6 --env-manager local

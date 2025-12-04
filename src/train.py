@@ -12,7 +12,7 @@ import os
 # --- CRITICAL FIX: Set Tracking URI programmatically ---
 # This ensures the script, even in an isolated environment, knows where the server is.
 # This bypasses the persistent 403 Forbidden error.
-mlflow.set_tracking_uri("http://localhost:5001")
+# mlflow.set_tracking_uri("http://localhost:5001")
 
 def train_model(n_estimators, max_depth):
     """

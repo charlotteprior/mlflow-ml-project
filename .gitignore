@@ -1,0 +1,14 @@
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Python artifacts
+__pycache__/
+*.pyc
+
+# Data & Models (will be handled by MLflow artifacts)
+/data/*.csv
+/data/*.pkl
+mlruns/
+model_artifacts/

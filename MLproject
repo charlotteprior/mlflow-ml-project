@@ -1,0 +1,15 @@
+# MLproject
+name: breast_cancer_project
+
+# Crucial: This tells MLflow to use the running server 
+artifact_location: mlflow-artifacts:/
+
+entry_points:
+  ingest:
+    command: "python src/ingest.py"
+  
+  train:
+    command: "python src/train.py --n-estimators {n_estimators} --max-depth {max_depth}"
+    parameters:
+      n_estimators: {type: int, default: 100}
+      max_depth: {type: int, default: 3}

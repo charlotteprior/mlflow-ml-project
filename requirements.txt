@@ -1,0 +1,10 @@
+mlflow
+scikit-learn
+pandas
+numpy
+matplotlib
+fastapi
+uvicorn[standard]
+joblib
+shap==0.44.0
+lime

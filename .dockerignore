@@ -1,0 +1,14 @@
+# .dockerignore
+
+# --- Python Environment and Cache ---
+.venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# --- MLflow Artifacts and Local Database ---
+mlflow.db
+mlartifacts/
+mlruns/
+data/

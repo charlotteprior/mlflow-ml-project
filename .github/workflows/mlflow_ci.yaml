@@ -30,7 +30,7 @@ jobs:
       - name: Run MLflow Pipeline
         run: |
           # The entire pipeline is run using the MLproject file (Step 15)
-          mlflow run . -e ingest
+          mlflow run . -e ingest --no-conda
           mlflow run . -e train -P n_estimators=200 -P max_depth=6
         env:
           MLFLOW_TRACKING_URI: ./.mlruns # Use local tracking for CI validation

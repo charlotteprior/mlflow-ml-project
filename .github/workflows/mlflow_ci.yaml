@@ -29,6 +29,7 @@ jobs:
 
       - name: Run MLflow Pipeline
         run: |
+          export MLFLOW_TRACKING_URI="http://127.0.0.1:5001"
           mlflow run . -e ingest --env-manager local
           mlflow run . -e train -P n_estimators=200 -P max_depth=6
         env:

@@ -1,0 +1,36 @@
+name: mlflow_ci
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run-mlflow-pipeline:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip' # Cache pip dependencies
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          # Install mlflow artifacts if needed
+          pip install mlflow[extras] 
+
+      - name: Run MLflow Pipeline
+        run: |
+          # The entire pipeline is run using the MLproject file (Step 15)
+          mlflow run . -e ingest
+          mlflow run . -e train -P n_estimators=200 -P max_depth=6
+        env:
+          MLFLOW_TRACKING_URI: ./.mlruns # Use local tracking for CI validation

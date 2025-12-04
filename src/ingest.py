@@ -4,7 +4,7 @@ import mlflow
 import os
 
 # --- CRITICAL FIX: Set Tracking URI programmatically ---
-mlflow.set_tracking_uri("http://localhost:5001")
+#mlflow.set_tracking_uri("http://localhost:5001")
 
 # Define the relative path to save the data
 data_dir = "data"
